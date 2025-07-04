@@ -23,6 +23,7 @@ public class Student extends AbstractEntity {
     private String lastname;
     private String firstname;
     private String email;
+    @Column(unique = true,updatable = false)
     private String registrationNumber;
     private LocalDateTime dateOfBirth;
 

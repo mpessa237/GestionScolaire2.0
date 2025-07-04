@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface ClassroomRepo extends JpaRepository<Classroom,Integer> {
 
     Optional<Classroom> findByClassName(String className);
+    boolean existsByClassName(String className);
 }

@@ -25,4 +25,6 @@ public class Classroom extends AbstractEntity {
     private Set<Student> students = new HashSet<>();
     @ManyToMany(mappedBy = "classrooms")
     private Set<Course> courses = new HashSet<>();
+
+    //appartient a un cycle
 }
