@@ -1,5 +1,7 @@
 package com.herve.gestionScolaire20.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.herve.gestionScolaire20.common.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "classroom")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "classroomId")
 public class Classroom extends AbstractEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer classroomId;

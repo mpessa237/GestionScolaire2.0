@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentRespDTO {
-    private Integer studentId;
+public class ParentReqDTO {
     private String lastname;
     private String firstname;
-    private String registrationNumber;
-    private LocalDate dateOfBirth;
-    private Integer classroomId;
+    private String email;
+    private String address;
+    private String phone;
+    private Integer studentId;
 }

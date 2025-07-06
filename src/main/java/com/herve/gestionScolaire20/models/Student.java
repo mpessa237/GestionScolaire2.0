@@ -1,5 +1,7 @@
 package com.herve.gestionScolaire20.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.herve.gestionScolaire20.common.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +20,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "student")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "studentId")
 public class Student extends AbstractEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer studentId;
@@ -25,7 +29,7 @@ public class Student extends AbstractEntity {
     private String email;
     @Column(unique = true,updatable = false)
     private String registrationNumber;
-    private LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @ManyToOne
     private Classroom classroom;

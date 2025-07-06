@@ -15,6 +15,6 @@ public class CourseRespDTO {
     private Integer courseId;
     private String name;
     private Double coefficient;
-    private Set<Teacher> teachers = new HashSet<>();
+
 
 }

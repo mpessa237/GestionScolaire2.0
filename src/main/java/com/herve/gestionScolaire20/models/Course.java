@@ -1,6 +1,6 @@
 package com.herve.gestionScolaire20.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.*;
 import com.herve.gestionScolaire20.common.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,6 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "course")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "name")
 public class Course extends AbstractEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer courseId;
@@ -34,6 +35,8 @@ public class Course extends AbstractEntity {
     @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
     private Set<Grade> grades = new HashSet<>();
     @ManyToMany(mappedBy = "courses")
+    //@JsonManagedReference
+    //Placé sur le "parent" ou le côté qui "gère" la relation. Ce côté sera sérialisé normalement.
     private Set<Teacher> teachers = new HashSet<>();
 
 }

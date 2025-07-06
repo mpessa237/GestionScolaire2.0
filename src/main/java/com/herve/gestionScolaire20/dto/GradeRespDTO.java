@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GradeRespDTO {
-
     private Integer gradeId;
     private Double value;
     private String appreciation;

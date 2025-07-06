@@ -54,9 +54,13 @@ public class GradeService {
         return gradeMapper.toDto(savedGrade);
     }
 
-    public List<Grade> findAll(){
-        return this.gradeRepo.findAll();
+    public List<GradeRespDTO> findAll(){
+
+        return this.gradeRepo.findAll().stream()
+                .map(gradeMapper::toDto)
+                .toList();
     }
+
     public GradeRespDTO findById(Integer gradeId){
         Grade grade = gradeRepo.findById(gradeId)
                 .orElseThrow(()->new EntityNotFoundException("garde not found!!"));
